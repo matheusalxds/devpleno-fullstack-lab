@@ -1,0 +1,5 @@
+<% console.log(categoria.id)%>
+<form method="post" action="/categorias/editar/<%=categoria.id%>">
+    <input type="text" name="categoria" placeholder="Insira o nome da categoria" value="<%= categoria.categoria %>">
+    <button>Salvar</button>
+</form>
