@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
 const categorias = require('./routes/categorias');
+const publicacoes = require('./routes/publicacoes');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded());
@@ -27,12 +28,20 @@ app.use(bodyParser.urlencoded());
 * */
 
 app.get('/', async (request, response) => {
-  const content = await axios.get('https://como-fazer-devpleno-mathe.firebaseio.com/teste.json');
-  response.render('index', { i: content.data });
+ /*
+ * Removido essa parte, pois é uma partida da primeira aula, não será mais necessário
+ *
+ * const content = await axios.get('https://como-fazer-devpleno-mathe.firebaseio.com/teste.json');
+ * response.render('index', { i: content.data });
+ * */
+
+  response.render('index');
 });
 
 // Adicionado as rotas de categorias
 app.use('/categorias', categorias);
+// Adicionado as rotas de publicacoes
+app.use('/publicacoes', publicacoes);
 
 app.listen(PORT, (err) => {
   if (err) {

@@ -17,7 +17,8 @@ const list = async (req, res) => {
 };
 
 const remove = async (req, res) => {
-  await api.remove('categoria', req.params.id)
+  await api.remove('categoria', req.params.id);
+  await api.remove('publicacoes', req.params.id);
   res.redirect('/categorias');
 };
 
